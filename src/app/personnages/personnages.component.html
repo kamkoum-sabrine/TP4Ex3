@@ -1,0 +1,38 @@
+<div>
+    <h1>Liste des personnages </h1>
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let personnage of tabPersonnages index as i" class="col-md-4">
+
+                <div class="card text-center">
+                    <div>
+                        <div class="card-header">{{personnage.nom}}</div>
+                        <div class="card-body">
+                            <img src="{{personnage.Image}}" height="50px" class="rounded-circle" /> <br />
+                            <input type="checkbox" [checked]="checkMajeur(personnage.majeur)" readonly />
+                            Majeur
+                            <p class="badge rounded-pill bg-secondary">Nombre d'abonnés : {{personnage.nb}}</p>
+                        </div>
+
+                        <div class="card-footer">
+                            <button class="btn btn-primary" (click)="follow(personnage.nb,i)"><i
+                                    class="fa-solid fa-heart"></i><i class="fas fa-pencil-alt "></i> S'abonner</button>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <span>
+                <p>Le nombre d'abonnées majeur :</p>
+                <span class="badge rounded-pill bg-warning text-dark">{{abMaj}}</span>
+            </span>
+
+
+        </div>
+
+
+    </div>
+
+</div>
